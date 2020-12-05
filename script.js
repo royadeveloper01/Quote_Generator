@@ -21,9 +21,10 @@ const hideLoadingSpinner= () => {
 // Get Quote from API
 async function getQuote() {
     showLoadingSpinner();
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
     const apiUrl = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
    try {
-    let response = await fetch(apiUrl)
+    let response = await fetch(proxyUrl + apiUrl)
     let data = await response.json()
 
     // if author is blank, replace with Anonymous
